@@ -1,0 +1,21 @@
+        <!-- Default Slide +++ {{ title }} -->
+        <slide data-date{% if slideClass != false %} class="{{ slideClass }}"{% endif %}{% if backgroundImage != false %} style="background-image: url(images/{{ backgroundImage }})"{% endif %}>
+{% if headerAsideImageBadge != false %}
+            <aside class="gdbar-aoe gdbar top-right">
+                <img src="{{ headerAsideImageBadge }}" />
+            </aside>
+{% endif %}
+            <hgroup{% if hgroupClass != false %} class="{{ hgroupClass }}"{% endif %}>
+                <h2{% if titleClass != false %} class="{{ titleClass }}"{% endif %}>{{ title }}</h2>
+            </hgroup>
+            <article{% if articleClass != false %} class="{{ articleClass }}"{% endif %}>
+{% autoescape %}
+                {{ content|raw }}
+            </article>
+{% endautoescape %}
+{% if footer != false %}
+            <footer class="{% if footerClass != false %}{{ footerClass  }}{% else %}source white{% endif %}">
+                {{ footer }}
+            </footer>
+{% endif %}
+        </slide>

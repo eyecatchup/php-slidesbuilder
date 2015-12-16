@@ -1,0 +1,1904 @@
+<!--
+AOE HTML5 Slide Template
+
+Author:  Stephan Schmitz <stephan.schmitz@aoe.com>
+
+URL: https://git.aoesupport.com/gitweb/users/stephan.schmitz/aoe-html5slides.git
+
+Based on the Google IO HTML5 Slide Template by Eric Bidelman & Luke Mahé.
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!doctype html>
+<html>
+<head>
+    <title>AOE HTML5 Slide Template</title>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--This one seems to work all the time, but really small on ipad-->
+    <meta name="viewport" content="initial-scale=0.4"><!---->
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="AOE HTML5 Slide Template">
+    <meta name="theme-color" content="#000000">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AOE HTML5 Slide Template">
+
+    <link rel="stylesheet" media="all" href="theme/css/fonts.css">
+    <link rel="stylesheet" media="all" href="theme/css/default.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+
+    <style>em {font-style: italic;} code {color: blueviolet; background-color: rgba(255,255,255,.9);} pre > code {background-color: rgba(255,255,255,.0);} h3.smaller {font-size: 110%;} article.bigger p,article.bigger ul {font-size: 32px;}</style>
+
+    <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+
+    <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0" class="aoe-gradient">
+
+    <!-- SlideDeck Wrapper -->
+    <slides class="layout-widescreen">
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             I N T R O - S L I D E S
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- Cover Slide -->
+        <slide data-date class="logoslide nobackground">
+            <article class="flexbox vcenter">
+                <span><img src="images/AOE-Logo_1c-v-claim.png" /></span>
+            </article>
+        </slide>
+
+        <!-- Title Slide -->
+        <slide data-date class="title-slide">
+            <hgroup class="auto-fadein">
+                <h1 data-config-title><!-- populated from slide_config.json --></h1>
+                <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+            </hgroup>
+            <article><p data-config-presenter><!-- populated from slide_config.json --></p></article>
+        </slide>
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             C O N T E N T - S L I D E S
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- Los geht's -->
+        <slide data-date class="fill nobackground" style="background-image: url(images/chapter-covers/los-gehts.jpg)">
+            <hgroup>
+                <h2 class="white">Los geht's</h2>
+            </hgroup>
+        </slide>
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             A G E N D A    E N D E
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- Chapter Cover +++ 1. Git Einführung und erste Schritte -->
+        <slide data-date class='fill nobackground' style="background-image: url(images/chapter-covers/agenda.jpg)">
+            <hgroup class='new-chapter'>
+                <h2>1. Git Einführung und erste Schritte</h2>
+            </hgroup>
+        </slide>
+
+        <!-- Default Slide +++ Erste Schritte mit Git -->
+        <slide data-date>
+            <hgroup>
+                <h2>Erste Schritte mit Git</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Zum Einstieg wollen wir, an einem kleinen Beispiel, den Arbeitsablauf
+mit Git illustrieren. </p>
+<p>Wir erstellen ein Repository und entwickeln darin ein „Hello, World!“-Programm
+in PHP. </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Das erste Repository - git init -->
+        <slide data-date>
+            <hgroup>
+                <h2>Das erste Repository - git init</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Bevor wir mit Git Dateien verwalten, müssen wir zuerst ein Repository erstellen. </p>
+<p>Das Repository wird lokal erstellt, liegt also nur auf dem Dateisystem des
+Rechners, auf dem wir arbeiten.</p>
+<pre><code>$ git init beispiel
+Initialized empty Git repository in /home/stephan/beispiel/.git/</code></pre>
+<p>Zunächst erstellt Git das Verzeichnis <code>beispiel/</code>, falls es noch nicht
+existiert. </p>
+<p>Danach initialisiert Git ein leeres Repository in diesem Verzeichnis
+und legt dafür ein Unterverzeichnis <code>.git/</code> an, in dem interne
+Daten verwaltet werden. </p>
+<p><em>Sollte das Verzeichnis <code>beispiel/</code> bereits existieren,
+erstellt Git darin ein neues Repository. Gibt es bereits sowohl
+das Verzeichnis wie auch ein Repository, macht Git gar nichts.</em></p>
+<p>Damit Git einen Commit einem Autor zuordnen kann, müssen wir unseren
+Namen und unsere E-Mail-Adresse hinterlegen:</p>
+<pre><code>$ git config user.name "Max Mustermann"
+$ git config user.email max.mustermann@aoe.com</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Das erste Repository - git status -->
+        <slide data-date>
+            <hgroup>
+                <h2>Das erste Repository - git status</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Wir wechseln in das Verzeichnis und schauen uns mit <code>git status</code> den aktuellen
+Zustand an:</p>
+<pre><code>$ cd beispiel
+$ git status
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)</code></pre>
+<p>Git weist uns darauf hin, dass wir vor dem ersten Commit stehen
+(Initial commit),
+hat aber nichts gefunden, was in diesen Commit einfließen könnte
+(nothing to commit). </p>
+<p>Dafür liefert es einen Hinweis, welche Schritte sich als nächste anbieten
+(das tun übrigens die meisten Git-Kommandos): „Erstellen/kopieren Sie Dateien,
+und verwenden Sie &quot;git add&quot;, um diese zu verwalten.“</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Der erste Commit -->
+        <slide data-date>
+            <hgroup>
+                <h2>Der erste Commit</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Übergeben wir Git nun eine erste Datei zur Verwaltung, und zwar unser
+„Hello World!“-Programm in PHP. </p>
+<p>Wir erstellen zunächst die Datei <code>hello.php</code> mit folgendem Inhalt</p>
+<pre><code>&lt;?php
+print "Hello World!" . PHP_EOL;</code></pre>
+<p>und führen das Script einmal aus:</p>
+<pre><code>$ php hello.php
+Hello World!</code></pre>
+<p>Damit sind wir bereit, die Datei mit Git zu verwalten. </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Der erste Commit -->
+        <slide data-date>
+            <hgroup>
+                <h2>Der erste Commit</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Vor dem ersten Commit, schauen wir uns aber nochmal die Ausgabe von <code>git status</code>
+an:</p>
+<pre><code>$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+    hello.php
+
+nothing added to commit but untracked files present (use "git add" to track)</code></pre>
+<p>Zwar steht der erste Commit noch bevor, aber Git registriert bereits, dass sich
+nun Dateien in diesem Verzeichnis befinden, die dem System allerdings noch nicht
+bekannt sind – Git nennt solche Dateien <em>untracked</em>.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Der erste Commit -->
+        <slide data-date>
+            <hgroup>
+                <h2>Der erste Commit</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Um <em>untracked</em> Files mit Git zu verwalten, nutzen wir den Befehl <code>git add &lt;datei&gt;</code>:</p>
+<pre><code>$ git add hello.php</code></pre>
+<p>Das &quot;add&quot; steht generell für „<em>Änderungen</em> hinzufügen“ – wir werden es
+also immer dann benötigen, wenn wir Dateien <em>bearbeitet</em> haben, nicht
+nur beim ersten Hinzufügen! (Git gibt bei diesem Befehl keine Ausgabe zurück!) </p>
+<p>Mit <code>git status</code> können wir aber überprüfen, ob der Aufruf erfolgreich war:</p>
+<pre><code>$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+    new file: hello.php</code></pre>
+<p>Git wird die Veränderungen – also unsere neue Datei – beim nächsten
+Commit übernehmen. Allerdings ist dieser Commit noch nicht vollzogen
+– wir haben ihn bisher lediglich vorbereitet.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Der erste Commit -->
+        <slide data-date>
+            <hgroup>
+                <h2>Der erste Commit</h2>
+            </hgroup>
+            <article class="smaller">
+                <pre><code>$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+    new file: hello.php</code></pre>
+<p>Um genau zu sein, haben wir die Datei dem <em>Index</em> hinzugefügt - einer Zwischenstufe,
+in der Veränderungen, die in den nächsten Commit einfließen sollen,
+gesammelt werden. <em>(Weitere Erklärungen zu diesem Konzept folgen.)</em></p>
+<p>Bei <code>git status</code> sehen wir unter &quot;Changes to be committed&quot; immer, welche
+Dateien sich im Index befinden, also in den nächsten Commit übernommen werden.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Der erste Commit -->
+        <slide data-date>
+            <hgroup>
+                <h2>Der erste Commit</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Alles ist nun bereit für den ersten Commit. Wir haben (1) eine Änderung in unserem
+Repository gemacht, (2) diese dem Index hinzugefügt und können die Änderung nun
+mit dem Kommando <code>git commit</code> commiten.</p>
+<p>Außerdem übergeben wir auf der Kommandozeile die Option -m mit einer
+Commit-Nachricht (Commit Message), in der wir den Commit beschreiben:</p>
+<pre><code>$ git commit -m "Erste Version"
+[master (root-commit) 07cc103] Erste Version
+
+1 file changed, 2 insertions(+)
+create mode 100644 hello.php</code></pre>
+<p>Git bestätigt, dass der Vorgang erfolgreich abgeschlossen wurde und die Datei
+von nun an verwaltet wird. </p>
+<p>Die Ausgabe bedeutet soviel wie: Git hat den initialen Commit (root-commit) mit
+der entsprechenden Nachricht erstellt. Es wurden zwei Zeilen in einer Datei
+hinzugefügt und die Datei mit den Unix-Rechten 0644 angelegt.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Der erste Commit -->
+        <slide data-date>
+            <hgroup>
+                <h2>Der erste Commit</h2>
+            </hgroup>
+            <article class="smaller">
+                <p><code>git status</code> ist ein unerlässliches Kommando in der täglichen Arbeit. Wir nutzen
+es an dieser Stelle noch einmal:</p>
+<pre><code>$ git status
+On branch master
+nothing to commit, working directory clean</code></pre>
+<p>Wie wir sehen, ist unser Beispiel-Repository jetzt „sauber“. </p>
+<p>Es gibt weder Veränderungen im <em>Working Tree</em> noch im <em>Index</em>, und auch keine
+Dateien, die nicht mit Git verwaltet werden (<em>Untracked Files</em>).</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen</h2>
+            </hgroup>
+            <article>
+                <p>Zum Abschluss dieser kleinen Einführung schauen wir uns noch zwei sehr nützliche
+Kommandos an, die wir einsetzen, um die Versionsgeschichte von Projekten zu
+untersuchen.</p>
+<ul>
+<li>git show</li>
+<li>git log</li>
+</ul>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git show -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git show</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Zunächst erlaubt <code>git show</code> die Untersuchung eines einzelnen Commits
+– ohne weitere Argumente ist das der aktuellste:</p>
+<pre><code>$ git show
+commit 07cc103feb393a93616842921a7bec285178fd56
+Author: Max Mustermann &lt;max.mustermann@aoe.com&gt;
+Date: Tue Aug 16 00:40:54 2015 +0100
+Erste Version
+diff --git a/hello.php b/hello.php
+new file mode 100644
+index 0000000..fa5a091
+--- /dev/null
++++ b/hello.php
+@@ -0,0 +2 @@
++&lt;?php
++print "Hello World!" . PHP_EOL;</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git show -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git show</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Zunächst erlaubt <code>git show</code> die Untersuchung eines einzelnen Commits
+– ohne weitere Argumente ist das der aktuellste:</p>
+<pre><code>$ git show
+commit 07cc103feb393a93616842921a7bec285178fd56
+Author: Max Mustermann &lt;max.mustermann@aoe.com&gt;
+Date: Tue Aug 16 00:40:54 2015 +0100
+Erste Version
+diff --git a/hello.php b/hello.php
+new file mode 100644
+index 0000000..fa5a091
+--- /dev/null
++++ b/hello.php
+@@ -0,0 +2 @@
++&lt;?php
++print "Hello World!" . PHP_EOL;</code></pre>
+<p>Mit <code>git show</code> sehen wir alle relevanten Informationen zu einem Commit:
+die Commit-ID, den Autor, das Datum und die Uhrzeit des Commits, die Commit-
+Nachricht sowie eine Zusammenfassung der Veränderungen im <em>Unified-Diff-Format</em>.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git show -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git show</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Standardmäßig gibt <code>git show</code> immer den sogenannten <code>HEAD</code> aus (ein symbolischer
+Name für den aktuellsten Commit).</p>
+<p>Wir könnten aber auch z.B. </p>
+<ul>
+<li>die Commit-ID, also die SHA-1-Prüfsumme des Commits, </li>
+<li>ein eindeutiges Präfix davon </li>
+<li>oder den Branch (in diesem Fall <code>master</code>) angeben. </li>
+</ul>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git show -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git show</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Standardmäßig gibt <code>git show</code> immer den sogenannten <code>HEAD</code> aus (ein symbolischer
+Name für den aktuellsten Commit).</p>
+<p>Wir könnten aber auch z.B. </p>
+<ul>
+<li>die Commit-ID, also die SHA-1-Prüfsumme des Commits, </li>
+<li>ein eindeutiges Präfix davon </li>
+<li>oder den Branch (in diesem Fall <code>master</code>) angeben. </li>
+</ul>
+<p>Somit sind in diesem Beispiel folgende Kommandos äquivalent:</p>
+<pre><code>$ git show
+$ git show HEAD
+$ git show master
+$ git show 07cc103
+$ git show 07cc103feb393a93616842921a7bec285178fd56</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git log -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git log</h2>
+            </hgroup>
+            <article>
+                <p>Wollen wir mehr als einen Commit einsehen, empfiehlt sich <code>git log</code>.</p>
+<p>Um das Kommando sinnvoll zu demonstrieren, bedarf es aber weiterer Commits;
+andernfalls würde sich die Ausgabe kaum von <code>git show</code> unterscheiden.</p>
+<p>Fügen wir also folgende Kommentarzeile dem „Hello World!“-Programm hinzu:</p>
+<pre><code>&lt;?php
+// Hello World in PHP
+print "Hello World!" . PHP_EOL;</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git log -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git log</h2>
+            </hgroup>
+            <article>
+                <p>Schauen wir uns der Übung halber noch einmal mit <code>git status</code> den aktuellen
+Zustand an:</p>
+<pre><code>$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified: hello.php
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git log -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git log</h2>
+            </hgroup>
+            <article>
+                <p>Schauen wir uns der Übung halber noch einmal mit <code>git status</code> den aktuellen
+Zustand an:</p>
+<pre><code>$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified: hello.php
+
+no changes added to commit (use "git add" and/or "git commit -a")</code></pre>
+<p>Wie gelernt, und wie auch in der Ausgabe des Kommandos nochmal beschrieben,<br />
+benutzen wir nun also wieder <code>git add</code>, um die Veränderungen dem Index
+hinzuzufügen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git log -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git log</h2>
+            </hgroup>
+            <article>
+                <p>Wir merken uns also: <code>git add</code> wird sowohl zum Hinzufügen neuer Dateien wie auch
+zum Hinzufügen von Veränderungen an Dateien, die bereits verwaltet werden,
+verwendet.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git log -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git log</h2>
+            </hgroup>
+            <article>
+                <p>Wir merken uns also: <code>git add</code> wird sowohl zum Hinzufügen neuer Dateien wie auch
+zum Hinzufügen von Veränderungen an Dateien, die bereits verwaltet werden,
+verwendet.</p>
+<p>Also, Änderung im Working Tree dem Index hinzufügen:</p>
+<pre><code>$ git add hello.php</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git log -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git log</h2>
+            </hgroup>
+            <article>
+                <p>Wir merken uns also: <code>git add</code> wird sowohl zum Hinzufügen neuer Dateien wie auch
+zum Hinzufügen von Veränderungen an Dateien, die bereits verwaltet werden,
+verwendet.</p>
+<p>Also, Änderung im Working Tree dem Index hinzufügen:</p>
+<pre><code>$ git add hello.php</code></pre>
+<p>Und anschließend einen Commit mit einer Commit-Message erstellen:</p>
+<pre><code>$ git commit -m "Kommentar-Zeile hinzugefügt"
+[master 8788e46] Kommentar-Zeile hinzugefügt
+ 1 file changed, 1 insertion(+)</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits einsehen - git log -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits einsehen - git log</h2>
+            </hgroup>
+            <article>
+                <p>Nun zeigt uns <code>git log</code> die beiden Commits an:</p>
+<pre><code>$ git log
+commit 8788e46167aec2f6be92c94c905df3b430f6ecd6
+Author: Max Mustermann &lt;max.mustermann@aoe.com&gt;
+Date: Tue Aug 16 00:42:03 2015 +0100
+
+    Kommentar-Zeile hinzugefügt
+
+commit 07cc103feb393a93616842921a7bec285178fd56
+Author: Max Mustermann &lt;max.mustermann@aoe.com&gt;
+Date: Tue Aug 16 00:40:54 2015 +0100
+
+    Erste Version</code></pre>
+            </article>
+        </slide>
+
+        <!-- Chapter Cover +++ Git konfigurieren -->
+        <slide data-date class='fill nobackground' style="background-image: url(images/chapter-covers/agenda.jpg)">
+            <hgroup class='new-chapter'>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+            <article>
+                <p>Git konfigurieren wir über das Kommando <code>git config</code>. </p>
+<p>Die Konfiguration wird einem Format ähnlich einer INI-Datei gespeichert. </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+            <article>
+                <p>Git konfigurieren wir über das Kommando <code>git config</code>. </p>
+<p>Die Konfiguration wird einem Format ähnlich einer INI-Datei gespeichert. </p>
+<p>Ohne Angabe weiterer Parameter gilt die Konfiguration nur für das aktuelle
+Repository (<code>.git/config</code>). </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+            <article>
+                <p>Git konfigurieren wir über das Kommando <code>git config</code>. </p>
+<p>Die Konfiguration wird einem Format ähnlich einer INI-Datei gespeichert. </p>
+<p>Ohne Angabe weiterer Parameter gilt die Konfiguration nur für das aktuelle
+Repository (<code>.git/config</code>). </p>
+<p>Mit der Option <code>--global</code> wird sie in der Datei <code>.gitconfig</code> im Home-Verzeichnis
+des Nutzers abgelegt und gilt dann für alle Repositories.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Einstellungen, die wir immer global vornehmen sollten, sind Name
+und E-Mail-Adresse:</p>
+<pre><code>$ git config --global user.name "Max Mustermann"
+$ git config --global user.email max.mustermann@aoe.com</code></pre>
+<p>Achtung: Leerzeichen im Wert müssen (durch Anführungszeichen oder Backslashes)
+geschützt werden.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Einstellungen, die wir immer global vornehmen sollten, sind Name
+und E-Mail-Adresse:</p>
+<pre><code>$ git config --global user.name "Max Mustermann"
+$ git config --global user.email max.mustermann@aoe.com</code></pre>
+<p>Achtung: Leerzeichen im Wert müssen (durch Anführungszeichen oder Backslashes)
+geschützt werden.</p>
+<p>Das Ergebnis des Kommandos findet sich anschließend in der Datei <code>~/.gitconfig</code>:</p>
+<pre><code>$ cat ~/.gitconfig
+[user]
+    name = Max Mustermann
+    email = max.mustermann@aoe.com</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+            <article>
+                <p>Wollten wir jetzt für ein bestimmtes Projekt eine andere E-Mail-Adresse als
+unsere global definierte angeben, ändern wir dort (im Root-Verzeichnes des
+Repositories) einfach die Einstellung (diesmal natürlich ohne den Zusatz
+<code>--global</code>):</p>
+<pre><code>$ git config user.email dev@aoe.com</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren</h2>
+            </hgroup>
+            <article>
+                <p>Wollten wir jetzt für ein bestimmtes Projekt eine andere E-Mail-Adresse als
+unsere global definierte angeben, ändern wir dort (im Root-Verzeichnes des
+Repositories) einfach die Einstellung (diesmal natürlich ohne den Zusatz
+<code>--global</code>):</p>
+<pre><code>$ git config user.email dev@aoe.com</code></pre>
+<p>Bei der Abfrage einer Option geht Git so vor, dass es zuerst die Einstellung
+im aktuellen Repository nutzt, sofern vorhanden, andernfalls die aus der
+globalen <code>.gitconfig</code>; gibt es auch diese nicht, wird auf den Default-Wert
+zurückgegriffen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren - Zeilenenden einstellen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren - Zeilenenden einstellen</h2>
+            </hgroup>
+            <article>
+                <p>Da Git auf Windows-Systemen wie auf unixoiden Systemen läuft, muss es das
+Problem verschiedener Zeilenende-Konventionen lösen.</p>
+<p>Dafür ist im Wesentlichen die Einstellung <code>core.eol</code> relevant, die einen der Werte
+<code>lf</code>, <code>crlf</code> oder <code>native</code> akzeptiert.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren - Zeilenenden einstellen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren - Zeilenenden einstellen</h2>
+            </hgroup>
+            <article>
+                <p>Da Git auf Windows-Systemen wie auf unixoiden Systemen läuft, muss es das
+Problem verschiedener Zeilenende-Konventionen lösen.</p>
+<p>Dafür ist im Wesentlichen die Einstellung <code>core.eol</code> relevant, die einen der Werte
+<code>lf</code>, <code>crlf</code> oder <code>native</code> akzeptiert. Wir überschreiben hier den Standard-Wert
+<code>native</code> mit <code>lf</code>:</p>
+<pre><code>$ git config --global core.eol lf</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren - Zeilenenden einstellen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren - Zeilenenden einstellen</h2>
+            </hgroup>
+            <article>
+                <p>Da Git auf Windows-Systemen wie auf unixoiden Systemen läuft, muss es das
+Problem verschiedener Zeilenende-Konventionen lösen.</p>
+<p>Dafür ist im Wesentlichen die Einstellung <code>core.eol</code> relevant, die einen der Werte
+<code>lf</code>, <code>crlf</code> oder <code>native</code> akzeptiert. Wir überschreiben hier den Standard-Wert
+<code>native</code> mit <code>lf</code>:</p>
+<pre><code>$ git config --global core.eol lf</code></pre>
+<p>Außerdem ist eine sichere Einstellung, die auch mit älteren Git-Versionen unter
+Windows-Systemen funktioniert, <code>core.autocrlf</code> auf <code>input</code> zu setzen:</p>
+<pre><code>$ git config --global core.autocrlf input</code></pre>
+<p>Dadurch wird automatisch beim Einlesen der Dateien vom Dateisystem CRLF durch LF
+ersetzt. <em>(Der Editor muss dann natürlich entsprechend mit LF-Enden umgehen
+können!)</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Git konfigurieren - Globale Standards -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git konfigurieren - Globale Standards</h2>
+            </hgroup>
+            <article>
+                <p>Als nächstes gehen wir in unser Home-Verzeichnis (<code>~</code> bzw <code>%USERPROFILE%</code>)
+und clonen folgendes Repository:</p>
+<pre><code>cd ~
+git clone https://github.com/eyecatchup/gitconfig.git</code></pre>
+<p>Anschließend ergänzen wir folgende globalen Einstellungen:</p>
+<pre><code>$ git config --global core.editor C:/Windows/system32/notepad.exe
+$ git config --global core.attributesfile ~/gitconfig/.gitattributes
+$ git config --global core.excludesfile ~/gitconfig/.gitignore_global
+$ git config --global commit.template ~/gitconfig/.git-commit-template.txt</code></pre>
+            </article>
+        </slide>
+
+        <!-- Chapter Cover +++ 10 Minuten Pause -->
+        <slide data-date class='fill nobackground' style="background-image: url(images/chapter-covers/pause-1.jpg)">
+            <hgroup class='new-chapter'>
+                <h2>10 Minuten Pause</h2>
+            </hgroup>
+        </slide>
+
+        <!-- Chapter Cover +++ 2. Git Grundlagen -->
+        <slide data-date class='fill nobackground' style="background-image: url(images/chapter-covers/agenda.jpg)">
+            <hgroup class='new-chapter'>
+                <h2>2. Git Grundlagen</h2>
+            </hgroup>
+        </slide>
+
+        <!-- Default Slide +++ Git Kommandos -->
+        <slide data-date>
+            <hgroup>
+                <h2>Git Kommandos</h2>
+            </hgroup>
+            <article>
+                <p>Die Kommandos, die wir zum Einstieg kennengelernt haben (vor allem
+<code>add</code> und <code>commit</code>), arbeiten auf dem <em>Index</em>. </p>
+<p>Im Folgenden werden wir uns genauer mit dem Index auseinandersetzen und die
+erweiterte Benutzung dieser Kommandos behandeln.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Die drei Arbeitsbereiche -->
+        <slide data-date>
+            <hgroup>
+                <h2>Die drei Arbeitsbereiche</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Der Inhalt von Dateien liegt für Git auf drei Ebenen: </p>
+<h3 class="smaller">1. Working Tree</h3>
+<p>Entspricht den Dateien, wie sie auf dem lokalen Dateisystem des Arbeitsrechners liegen.<br />
+<em>(Wenn wir also Dateien bearbeiten, mit grep darin suchen etc., operieren
+wir immer auf dem Working Tree.)</em></p>
+<h3 class="smaller">3. Repository</h3>
+<p>Enthält alle Commits, also versionierte Änderungen, mit Angaben
+zu (1) Dateiänderungen - im Unified-Diff-Format -, (2) einer Beschreibung der
+Änderung (commit-message) und Angaben zu (3) Autor und (4) Datum.<br />
+<em>(Alle Commits zusammen ergeben die Versions-Historie.)</em></p>
+<h3 class="smaller">2. Index</h3>
+<p>Git führt nun, im Gegensatz zu vielen anderen Versionskontrollsystemen,
+eine Neuerung ein, den <em>Index</em> (a.k.a. Staging Area) - eine Zwischenebene
+zwischen Working Tree und Repository.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Die drei Arbeitsbereiche - Der Index -->
+        <slide data-date>
+            <hgroup>
+                <h2>Die drei Arbeitsbereiche - Der Index</h2>
+            </hgroup>
+            <article class="smaller">
+                <h3 class="smaller">Warum ein <em>Index</em>?</h3>
+<p>Der Index dient dazu, Commits vorzubereiten. </p>
+<p>Das bedeutet, dass nicht immer <em>alle</em> Änderungen, die (im Working Tree) gemacht wurden,<br />
+auch als Commit eingecheckt werden müssen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Die drei Arbeitsbereiche - Der Index -->
+        <slide data-date>
+            <hgroup>
+                <h2>Die drei Arbeitsbereiche - Der Index</h2>
+            </hgroup>
+            <article class="smaller">
+                <h3 class="smaller">Warum ein <em>Index</em>?</h3>
+<p>Der Index dient dazu, Commits vorzubereiten. </p>
+<p>Das bedeutet, dass nicht immer <em>alle</em> Änderungen, die (im Working Tree) gemacht wurden,<br />
+auch als Commit eingecheckt werden müssen.</p>
+<h3 class="smaller">Arbeiten mit dem Index</h3>
+<p>Die Git-Kommandos <code>add</code> und <code>reset</code> agieren (in ihrer Grundform) auf dem Index -<br />
+sie bringen Änderungen in den Index ein bzw. löschen diese wieder. </p>
+<p>Erst das Kommando <code>commit</code> überträgt die Änderung(en) vom Index in das Repository.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Die drei Arbeitsbereiche - Ein typischer Arbeitsablauf -->
+        <slide data-date>
+            <hgroup>
+                <h2>Die drei Arbeitsbereiche - Ein typischer Arbeitsablauf</h2>
+            </hgroup>
+            <article>
+                <p>Im Ausgangszustand, das heißt wenn <code>git status</code> die Nachricht &quot;nothing
+to commit&quot; ausgibt, sind Working Tree und Index mit <code>HEAD</code> synchronisiert.
+<em>(Der Index ist also nicht „leer“, sondern enthält die Dateien
+im gleichen Zustand, wie sie im Working Tree vorliegen.)</em></p>
+<p>In der Regel ist dann der Arbeitsablauf folgender: </p>
+<ul>
+<li>Veränderung wird im Working Tree vorgenommen</li>
+<li>Veränderung wird durch <code>add</code> in den Index übernommen </li>
+<li>Veränderung wird per <code>commit</code> im Repository abgespeichert</li>
+</ul>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Die drei Arbeitsbereiche - diff -->
+        <slide data-date>
+            <hgroup>
+                <h2>Die drei Arbeitsbereiche - diff</h2>
+            </hgroup>
+            <article>
+                <p>Die Unterschiede zwischen diesen drei Ebenen (Working Tree, Index &amp; Repository)
+können jeweils durch das <code>diff</code>-Kommando eingesehen werden.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Die drei Arbeitsbereiche - diff -->
+        <slide data-date>
+            <hgroup>
+                <h2>Die drei Arbeitsbereiche - diff</h2>
+            </hgroup>
+            <article>
+                <p>Die Unterschiede zwischen diesen drei Ebenen (Working Tree, Index &amp; Repository)
+können jeweils durch das <code>diff</code>-Kommando eingesehen werden.</p>
+<h3 class="smaller">Working Tree vs. Index</h3>
+<p><code>git diff</code> zeigt die Unterschiede zwischen Working Tree und Index an –<br />
+<em>also die Unterschiede zwischen den (tatsächlichen) Dateien auf dem Arbeitssystem
+und den Dateien, wie sie eingecheckt würden, wenn man <code>git commit</code> aufrufen würde.</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Die drei Arbeitsbereiche - diff -->
+        <slide data-date>
+            <hgroup>
+                <h2>Die drei Arbeitsbereiche - diff</h2>
+            </hgroup>
+            <article>
+                <p>Die Unterschiede zwischen diesen drei Ebenen (Working Tree, Index &amp; Repository)
+können jeweils durch das <code>diff</code>-Kommando eingesehen werden.</p>
+<h3 class="smaller">Working Tree vs. Index</h3>
+<p><code>git diff</code> zeigt die Unterschiede zwischen Working Tree und Index an –<br />
+<em>also die Unterschiede zwischen den (tatsächlichen) Dateien auf dem Arbeitssystem
+und den Dateien, wie sie eingecheckt würden, wenn man <code>git commit</code> aufrufen würde.</em></p>
+<h3 class="smaller">Index vs. Repository</h3>
+<p><code>git diff --staged</code> zeigt die Unterschiede zwischen Index und Repository an -<br />
+<em>also die Unterschiede, die ein Commit ins Repository übertragen würde.</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits</h2>
+            </hgroup>
+            <article>
+                <p>Wie gesagt, der Index ermöglicht, dass nicht alle Änderungen, die im Working Tree gemacht wurden,
+in einen Commit mit übernommen werden müssen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits</h2>
+            </hgroup>
+            <article>
+                <p>Wie gesagt, der Index ermöglicht, dass nicht alle Änderungen, die im Working Tree gemacht wurden,
+in einen Commit mit übernommen werden müssen.</p>
+<h3>Aber, warum sollte man das überhaupt wollen?</h3>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article>
+                <p>Ein Beispiel: Du hast über mehrere Stunden an zwei oder drei Unteraufgaben (Tasks)
+einer bestimmten Aufgabe (Story) gearbeitet ohne zwischendurch zu commiten.
+Zudem sind die Änderungen über diverse Dateien verstreut.</p>
+<p>Im besten Fall wollen Sie also selektiv arbeiten, d.h. nicht alle Veränderungen
+aus einer Datei in einen Commit übernehmen, sondern nur bestimmte Zeilen,
+und das auch noch aus verschiedenen Dateien.</p>
+<p>Der Index von Git bietet dafür die gewünschte Flexibilität. </p>
+<p>Man sammelt einige Änderungen im Index und verpackt sie dann in einen Commit.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Wir wollen das anhand des „Hello World!“-Beispiels aus der Einführung illustrieren. </p>
+<p>Zur Erinnerung der Inhalt der Datei hello.php:</p>
+<pre><code>&lt;?php
+// Hello World in PHP
+print "Hello World!" . PHP_EOL;</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Wir wollen das anhand des „Hello World!“-Beispiels aus der Einführung illustrieren. </p>
+<p>Zur Erinnerung der Inhalt der Datei hello.php:</p>
+<pre><code>&lt;?php
+// Hello World in PHP
+print "Hello World!" . PHP_EOL;</code></pre>
+<p>Nun präparieren wir die Datei so, dass sie mehrere unabhängige Veränderungen
+hat, die wir <em>nicht</em> in einem einzelnen Commit zusammenfassen wollen.</p>
+<pre><code>&lt;?php
+error_reporting(0);
+// Hello World in PHP
+// Author: Stephan Schmitz
+print "Hello World!" . PHP_EOL;</code></pre>
+<p><em>(Relevant ist für unser Beispiel nur, dass die Datei an mehreren Stellen verändert wurde.)</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article>
+                <p>Mit einem einfachen <code>git add hello.php</code> würden alle neuen Zeilen dem
+Index hinzugefügt – der Stand der Datei im Index wäre also der gleiche
+wie im Working Tree. </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article>
+                <p>Mit einem einfachen <code>git add hello.php</code> würden alle neuen Zeilen dem
+Index hinzugefügt – der Stand der Datei im Index wäre also der gleiche
+wie im Working Tree. </p>
+<h3 class="smaller"><code>git add --patch</code></h3>
+<p>Stattdessen verwenden wir die Option <code>--patch</code> bzw. kurz <code>-p</code>. </p>
+<p>Dies hat zur Folge, dass wir interaktiv gefragt werden, welche Veränderungen wir dem Index hinzufügen wollen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Mit <code>git add -p</code> wird also jede Änderung einzeln angezeigt, und wir können
+von Fall zu Fall entscheiden, wie wir mit dieser verfahren wollen:</p>
+<pre><code>$ git add -p
+diff --git a/hello.php b/hello.php
+index c6f28d5..908e967 100644
+--- a/hello.php
++++ b/hello.php
+@@ -1,3 +1,5 @@
+ &lt;?php
++error_reporting(0);
+ // Hello World in PHP
++// Author: Stephan Schmitz
+ print "Hello World!" . PHP_EOL;
+Stage this hunk [y,n,q,a,d,/,s,e,?]?</code></pre>
+<p><em>(Der Begriff Hunk bezeichnet lose zusammenhängende Zeilen im Quellcode.)</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>In unserem Beispiel teilen wir den aktuellen Hunk und geben <code>s</code> für split ein.</p>
+<pre><code>Stage this hunk [y,n,q,a,d,/,s,e,?]? s
+Split into 2 hunks.
+@@ -1,2 +1,3 @@</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>In unserem Beispiel teilen wir den aktuellen Hunk und geben <code>s</code> für split ein.</p>
+<pre><code>Stage this hunk [y,n,q,a,d,/,s,e,?]? s
+Split into 2 hunks.
+@@ -1,2 +1,3 @@</code></pre>
+<p>Git bestätigt, dass der Hunk erfolgreich geteilt werden konnte (s.o.), und bietet
+uns nun ein Diff an (s.u.), das nur die erste Zeilenänderung enthält.</p>
+<pre><code> &lt;?php
++error_reporting(0);
+ // Hello World in PHP
+Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]? y</code></pre>
+<p>Wir geben <code>y</code> für yes an und beim nächsten Hunk <code>q</code> für quit.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article>
+                <p>Um zu überprüfen, ob alles geklappt hat, verwenden wir <code>git diff</code> mit der Option <code>--staged</code>,
+die den Unterschied zwischen Index und HEAD (dem neuesten Commit) anzeigt:</p>
+<pre><code>$ git diff --staged
+diff --git a/hello.php b/hello.php
+index 71d18b9..b86a5b1 100644
+--- a/hello.php
++++ b/hello.php
+@@ -1,3 +1,4 @@
+ &lt;?php
++error_reporting(0);
+ // Hello World in PHP
+ print "Hello World!" . PHP_EOL;</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article>
+                <p>Um zu sehen, welche Veränderungen sich noch <em>nicht</em> im Index befinden,
+reicht ein einfacher Aufruf von <code>git diff</code>, der uns zeigt, dass sich – wie
+erwartet – noch eine weitere Zeilenänderung im Working Tree befindet:</p>
+<pre><code>$ git diff
+diff --git a/hello.php b/hello.php
+index b86a5b1..557cf13 100644
+--- a/hello.php
++++ b/hello.php
+@@ -1,4 +1,5 @@
+ &lt;?php
+ error_reporting(0);
+ // Hello World in PHP
++// Author: Stephan Schmitz
+ print "Hello World!" . PHP_EOL;</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article>
+                <p>An dieser Stelle könnten wir einen Commit erzeugen, wollen zur
+Demonstration aber noch einmal von vorn beginnen. </p>
+<p>Darum setzen wir mit <code>git reset HEAD</code> den <em>Index</em> zurück.</p>
+<pre><code>$ git reset HEAD
+Unstaged changes after reset:
+M       hello.php</code></pre>
+<p><em>(Das Kommando <code>git reset</code> ist gewissermaßen das Gegenstück zu <code>git add</code>: Statt Unterschiede aus dem Working Tree in den Index zu übertragen,
+überträgt <code>reset</code> Unterschiede aus dem Repository in den Index.)</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article>
+                <p>Bei häufigem Gebrauch von <code>git add -p</code>, ist es nur eine Frage der
+Zeit, bis man versehentlich einen Hunk auswählt, den man eigentlich gar
+nicht wollte. </p>
+<p>Sollte der Index leer gewesen sein, ist dies kein Problem,
+da man ihn einfach zurücksetzen und von vorne anfangen kann. </p>
+<p>Problematisch wird es erst, wenn man bereits viele Veränderungen im Index aufgezeichnet
+hat und diese nicht verlieren möchten, man also einen
+bestimmten Hunk aus dem Index entfernen möchte, ohne die anderen Hunks
+anzufassen.</p>
+<p>Analog zu <code>git add -p</code> gibt es daher den Befehl <code>git reset -p</code>, der einzelne
+Hunks wieder aus dem Index entfernt.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Um das zu demonstrieren, übernehmen wir zunächst alle Veränderungen mit <code>git add hello.php</code><br />
+und starten <code>git reset -p</code>.</p>
+<pre><code>$ git reset -p
+diff --git a/hello.php b/hello.php
+index 71d18b9..557cf13 100644
+--- a/hello.php
++++ b/hello.php
+@@ -1,3 +1,5 @@
+ &lt;?php
++error_reporting(0);
+ // Hello World in PHP
++// Author: Stephan Schmitz
+ print "Hello World!" . PHP_EOL;
+Unstage this hunk [y,n,q,a,d,/,s,e,?]?</code></pre>
+<p>Wie bei dem Beispiel mit <code>git add -p</code> bietet Git nach und nach Hunks
+an, jedoch sind es diesmal alle Hunks im Index. </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Schrittweise Commits - Praxisbeispiel -->
+        <slide data-date>
+            <hgroup>
+                <h2>Schrittweise Commits - Praxisbeispiel</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Entsprechend lautet die
+Frage: <code>Unstage this hunk [y,n,q,a,d,/,s,e,?]?</code>, also ob wir den
+Hunk wieder aus dem Index herausnehmen möchten.</p>
+<p>Wir drücken an dieser Stelle
+einmal <code>s</code> für split, einmal <code>n</code> für no und einmal <code>y</code> für yes. Damit sollte
+sich jetzt nur die <code>error_reporting</code>-Zeile im Index befinden.</p>
+<pre><code>$ git diff --staged
+diff --git a/hello.php b/hello.php
+index 71d18b9..b86a5b1 100644
+--- a/hello.php
++++ b/hello.php
+@@ -1,3 +1,4 @@
+ &lt;?php
++error_reporting(0);
+ // Hello World in PHP
+ print "Hello World!" . PHP_EOL;</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits erstellen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits erstellen</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Wir wissen nun, wie wir Änderungen zwischen Working Tree, Index und
+Repository austauschen. </p>
+<p>Wenden wir uns nun noch kurz dem Kommando <code>git commit</code> zu, mit dem wir Änderungen im
+Repository „festschreiben“.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits erstellen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits erstellen</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Commits enthalten immer den Stand aller Dateien eines Projekts zu einem
+bestimmten Zeitpunkt und zudem gewisse Metainformationen.</p>
+<p>Für manche dieser Commit-Metainformationen verwendet Git die konfigurierten Einstellungen
+(wie <code>user.name</code> und <code>user.email</code>), andere werden individuell für jeden Commit bestimmt.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits erstellen -  `git commit` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits erstellen -  `git commit`</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Bei einem Aufruf von <code>git commit</code> ohne zusätzliche Argumente fasst Git
+alle Veränderungen im Index zu einem Commit zusammen und öffnet einen Editor,
+mit dem eine Commit-Message erstellt werden kann. <em>(Sobald man den Editor schließt, erstellt Git den Commit. Gibt man keine
+Commit-Nachricht an oder löscht man den gesamten Inhalt der Datei,
+bricht Git ab und erstellt keinen Commit.)</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits erstellen -  `git commit` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits erstellen -  `git commit`</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Bei einem Aufruf von <code>git commit</code> ohne zusätzliche Argumente fasst Git
+alle Veränderungen im Index zu einem Commit zusammen und öffnet einen Editor,
+mit dem eine Commit-Message erstellt werden kann. <em>(Sobald man den Editor schließt, erstellt Git den Commit. Gibt man keine
+Commit-Nachricht an oder löscht man den gesamten Inhalt der Datei,
+bricht Git ab und erstellt keinen Commit.)</em></p>
+<h3 class="smaller"><code>git commit -m</code></h3>
+<p>Wollen wir nur eine Zeile schreiben, bietet sich, wie auch schon in unserer Einführung verwendet, die Option <code>--message</code>
+oder kurz <code>-m</code> an, mit der die Nachricht direkt auf der Kommandozeile angegeben wird:</p>
+<pre><code>$ git commit -m "Dies ist die Commit-Nachricht"</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commits erstellen -  `git commit` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commits erstellen -  `git commit`</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Bei einem Aufruf von <code>git commit</code> ohne zusätzliche Argumente fasst Git
+alle Veränderungen im Index zu einem Commit zusammen und öffnet einen Editor,
+mit dem eine Commit-Message erstellt werden kann. <em>(Sobald man den Editor schließt, erstellt Git den Commit. Gibt man keine
+Commit-Nachricht an oder löscht man den gesamten Inhalt der Datei,
+bricht Git ab und erstellt keinen Commit.)</em></p>
+<h3 class="smaller"><code>git commit -m</code></h3>
+<p>Wollen wir nur eine Zeile schreiben, bietet sich, wie auch schon in unserer Einführung verwendet, die Option <code>--message</code>
+oder kurz <code>-m</code> an, mit der die Nachricht direkt auf der Kommandozeile angegeben wird:</p>
+<pre><code>$ git commit -m "Dies ist die Commit-Nachricht"</code></pre>
+<h3 class="smaller"><code>git commit --amend</code></h3>
+<p>Wenn wir vorschnell <code>git commit</code> eingegeben haben, den Commit aber
+noch geringfügig verbessern wollen, hilft die Option <code>--amend</code> („berichtigen“).</p>
+<p>Die Option veranlasst Git, die Änderungen im Index dem eben
+getätigten Commit „hinzuzufügen“. Außerdem können wir so auch die Commit-
+Nachricht anpassen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Dateien verschieben und löschen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Dateien verschieben und löschen</h2>
+            </hgroup>
+            <article>
+                <p>Wenn wir Dateien, die von Git verwaltet werden, löschen oder verschieben
+wollen, dann verwenden wir dafür </p>
+<ul>
+<li><code>git rm</code> bzw. </li>
+<li><code>git mv</code>.</li>
+</ul>
+<p>Sie funktionieren wie die regulären Unix-Kommandos, modifizieren aber darüber hinaus
+den Index, so dass die Aktion in den nächsten Commit einfließt.</p>
+<p><em>TIPP: Um eine Datei nur aus dem Index zu löschen, verwendet man <code>git rm --cached &lt;file&gt;</code>. Sie bleibt dann im Working Tree erhalten.</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Mit <code>git log</code> untersucht man die Versionshistorie eines Projekts. </p>
+<p>Die Optionen dieses Kommandos (die großteils auch für git show funktionieren)
+sind sehr umfangreich, wir werden uns im Folgenden die wichtigsten
+anschauen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Ohne weitere Argumente gibt <code>git log</code> für jeden Commit Autor,
+Datum, Commit-ID sowie die komplette Commit-Nachricht aus. Allerdings ist die Liste etwas unhandlich,
+sobald Sie viele Commits betrachten.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Ohne weitere Argumente gibt <code>git log</code> für jeden Commit Autor,
+Datum, Commit-ID sowie die komplette Commit-Nachricht aus. Allerdings ist die Liste etwas unhandlich,
+sobald Sie viele Commits betrachten.</p>
+<p>Wollen wir nur die kürzlich erstellten Commits anschauen, begrenzen
+wir die Ausgabe von <code>git log</code> durch die Option<br />
+<code>-&lt;n&gt;</code> auf n Commits. Die letzten vier Commits erhalten wir zum Beispiel mit:</p>
+<pre><code>$ git log -4</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Ohne weitere Argumente gibt <code>git log</code> für jeden Commit Autor,
+Datum, Commit-ID sowie die komplette Commit-Nachricht aus. Allerdings ist die Liste etwas unhandlich,
+sobald Sie viele Commits betrachten.</p>
+<p>Wollen wir nur die kürzlich erstellten Commits anschauen, begrenzen
+wir die Ausgabe von <code>git log</code> durch die Option<br />
+<code>-&lt;n&gt;</code> auf n Commits. Die letzten vier Commits erhalten wir zum Beispiel mit:</p>
+<pre><code>$ git log -4</code></pre>
+<p>Um einen einzelnen Commit anzuzeigen, geben wir stattdessen ein:</p>
+<pre><code>$ git log -1 &lt;commit&gt;</code></pre>
+<p>Das Argument <code>&lt;commit&gt;</code> ist eine legale Bezeichnung für einen einzelnen
+Commit, z.B. die Commit-ID bzw. SHA-1-Summe. Wenn wir jedoch
+nichts angeben, verwendet Git automatisch <code>HEAD</code>. Abgesehen von einzelnen
+Commits versteht das Kommando auch sog. <em>Commit-Ranges</em> (mehr dazu folgt).</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Ohne weitere Argumente gibt <code>git log</code> für jeden Commit Autor,
+Datum, Commit-ID sowie die komplette Commit-Nachricht aus. Allerdings ist die Liste etwas unhandlich,
+sobald Sie viele Commits betrachten.</p>
+<p>Wollen wir nur die kürzlich erstellten Commits anschauen, begrenzen
+wir die Ausgabe von <code>git log</code> durch die Option<br />
+<code>-&lt;n&gt;</code> auf n Commits. Die letzten vier Commits erhalten wir zum Beispiel mit:</p>
+<pre><code>$ git log -4</code></pre>
+<p>Um einen einzelnen Commit anzuzeigen, geben wir stattdessen ein:</p>
+<pre><code>$ git log -1 &lt;commit&gt;</code></pre>
+<p>Das Argument <code>&lt;commit&gt;</code> ist eine legale Bezeichnung für einen einzelnen
+Commit, z.B. die Commit-ID bzw. SHA-1-Summe. Wenn wir jedoch
+nichts angeben, verwendet Git automatisch <code>HEAD</code>. Abgesehen von einzelnen
+Commits versteht das Kommando auch sog. <em>Commit-Ranges</em> (mehr dazu folgt).</p>
+<p>Die Option <code>-p</code> (<code>--patch</code>) fügt den vollen Patch im <em>Unified-Diff-Format</em>
+unter der Beschreibung an. Damit ist also ein <code>git show &lt;commit&gt;</code> von
+der Ausgabe äquivalent zu <code>git log -1 -p &lt;commit&gt;</code>.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen</h2>
+            </hgroup>
+            <article>
+                <p>Wollen wir die Commits in komprimierter Form anzeigen, empfiehlt
+sich die Option <code>--oneline</code>: Sie fasst jeden Commit mit seiner abgekürzten
+SHA-1-Summe und der ersten Zeile der Commit-Nachricht zusammen.</p>
+<p>Auch dies ist ein Grund dafür, dass möglichst gute Commit-Messages wichtig sind!</p>
+<pre><code>$ git log --oneline
+25f3af3 [WE-1236]: Remove obsolete Baz controller
+786dabe [WE-1235]: Fix Bar Unittests  
+91c031d [WE-1235]: Add Bar controller
+b312b41 [WE-1234]: Update Foo controller, add myAction</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - Zeitliche Einschränkung -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - Zeitliche Einschränkung</h2>
+            </hgroup>
+            <article>
+                <p>Wir können die anzuzeigenden Commits auch <em>zeitlich</em> eingrenzen, und zwar
+mit den Optionen<br />
+<code>--after</code> bzw. <code>--since</code> sowie <code>--until</code> bzw. <code>--before</code>.
+<em>(Die Optionen sind jeweils synonym, liefern also dieselben Ergebnisse.)</em></p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - Zeitliche Einschränkung -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - Zeitliche Einschränkung</h2>
+            </hgroup>
+            <article>
+                <p>Wir können die anzuzeigenden Commits auch <em>zeitlich</em> eingrenzen, und zwar
+mit den Optionen<br />
+<code>--after</code> bzw. <code>--since</code> sowie <code>--until</code> bzw. <code>--before</code>.
+<em>(Die Optionen sind jeweils synonym, liefern also dieselben Ergebnisse.)</em></p>
+<p>Wir können absolute Daten in jedem gängigen Format angeben oder
+auch relative Daten - hier einige Beispiele:</p>
+<pre><code>$ git log --after='Tue Feb 1st, 2011'
+$ git log --since='2011-01-01'
+$ git log --since='two weeks ago' --before='one week ago'
+$ git log --since='yesterday'</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - Einschränkungen auf Dateiebene -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - Einschränkungen auf Dateiebene</h2>
+            </hgroup>
+            <article>
+                <p>Geben wir nach einem <code>git log</code>-Aufruf einen oder mehrere Datei- oder
+Verzeichnisnamen an, wird Git nur die Commits anzeigen, die zumindest
+eine der angegebenen Dateien betrifft.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - Einschränkungen auf Dateiebene -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - Einschränkungen auf Dateiebene</h2>
+            </hgroup>
+            <article>
+                <p>Geben wir nach einem <code>git log</code>-Aufruf einen oder mehrere Datei- oder
+Verzeichnisnamen an, wird Git nur die Commits anzeigen, die zumindest
+eine der angegebenen Dateien betrifft.</p>
+<p>Da Dateinamen möglicherweise mit Branches oder Tags kollidieren,
+sollten die Dateinamen sicherheitshalber nach einem <code>--</code> angeben werden,
+was besagt, dass nur noch Datei-Argumente folgen.</p>
+<p>Hier einige Beispiele:</p>
+<pre><code>$ git log -- index.php
+$ git log -- *.js
+$ git log -- Tests/Functional/</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - grep für Commits -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - grep für Commits</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Wir können auch im Stile von <code>grep</code> nach Commits suchen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - grep für Commits -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - grep für Commits</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Wir können auch im Stile von <code>grep</code> nach Commits suchen.</p>
+<h3 class="smaller"><code>git log --author</code></h3>
+<p>Mit <code>git log --author</code> filtert man die Commits nach Autor- bzw. Committer-Name oder -Adresse. So listen Sie zum Beispiel
+alle Commits, die &quot;Max Power&quot; seit Anfang 2010 gemacht hat:</p>
+<pre><code>$ git log --since='2010-01-01' --author='Max Power'</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - grep für Commits -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - grep für Commits</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Wir können auch im Stile von <code>grep</code> nach Commits suchen.</p>
+<h3 class="smaller"><code>git log --author</code></h3>
+<p>Mit <code>git log --author</code> filtert man die Commits nach Autor- bzw. Committer-Name oder -Adresse. So listen Sie zum Beispiel
+alle Commits, die &quot;Max Power&quot; seit Anfang 2010 gemacht hat:</p>
+<pre><code>$ git log --since='2010-01-01' --author='Max Power'</code></pre>
+<h3 class="smaller"><code>git log --grep</code></h3>
+<p>Mit <code>--grep</code> kann man zum Beispiel nach Schlagwörtern oder Satzteilen
+in einer Commit-Nachricht suchen - etwa nach allen Commits, in denen das Wort
+„fix“ vorkommt (ohne die Groß- und Kleinschreibung zu beachten (<code>-i</code>)):</p>
+<pre><code>$ git log -i --grep=fix</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Versionshistorie untersuchen - grep für Diffs -->
+        <slide data-date>
+            <hgroup>
+                <h2>Versionshistorie untersuchen - grep für Diffs</h2>
+            </hgroup>
+            <article>
+                <p>Um nach <em>Änderungen</em> zu suchen, verwenden wir:</p>
+<pre><code>$ git log -p -G&lt;regex&gt;</code></pre>
+<p>So finden wir Commits, in deren Diff ein bestimmter regulärer Ausdruck vorkommt.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Commit-Ranges -->
+        <slide data-date>
+            <hgroup>
+                <h2>Commit-Ranges</h2>
+            </hgroup>
+            <article>
+                <p>Bisher haben wir lediglich Kommandos betrachtet, die nur einen einzelnen
+Commit als Argument fordern, explizit identifiziert durch seine
+Commit-ID oder implizit durch den symbolischen Namen <code>HEAD</code>, der den
+jeweils aktuellsten Commit referenziert.</p>
+<p>Ein wichtiges Hilfsmittel, um eine Reihe von Commits anzugeben, sind
+sogenannte Commit-Ranges der Form <code>&lt;commit1&gt;..&lt;commit2&gt;</code>. </p>
+<p>Da wir bislang noch nicht mit mehreren Branches (Zweigen) arbeiten, ist dies
+einfach ein Ausschnitt der Commits in einem Repository, und zwar von
+<code>&lt;commit1&gt;</code> exklusive bis <code>&lt;commit2&gt;</code> inklusive.</p>
+            </article>
+        </slide>
+
+        <!-- Chapter Cover +++ 3. Praktische Versionsverwaltung -->
+        <slide data-date class='fill nobackground' style="background-image: url(images/chapter-covers/agenda.jpg)">
+            <hgroup class='new-chapter'>
+                <h2>3. Praktische Versionsverwaltung</h2>
+            </hgroup>
+        </slide>
+
+        <!-- Default Slide +++ Praktische Versionsverwaltung -->
+        <slide data-date>
+            <hgroup>
+                <h2>Praktische Versionsverwaltung</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Der folgende Abschnitt stellt alle wesentlichen Techniken vor, die man im
+täglichen Umgang mit Git einsetzen muss. </p>
+<p>Neben einer genaueren Beschreibung des Index und wie man alte Versionen wiederherstellt,
+liegt der Fokus auf der effektiven Arbeit mit Branches.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Referenzen - Branches und Tags -->
+        <slide data-date>
+            <hgroup>
+                <h2>Referenzen - Branches und Tags</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>In Git sind das Abzweigen im Entwicklungszyklus (Branching) und
+das anschließende Wiederzusammenführen (Merging) alltäglich, einfach,
+transparent und schnell.</p>
+<p>Tools wie Gitk sind hilfreich, um bei mehreren Branches nicht den Überblick
+zu verlieren.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Referenzen - Branches und Tags - Definition -->
+        <slide data-date>
+            <hgroup>
+                <h2>Referenzen - Branches und Tags - Definition</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Referenzen sind nichts weiter als symbolische Namen für die schwierig
+zu merkenden SHA-1-Summen von Commits.</p>
+<p>Diese Referenzen liegen in <code>.git/refs/</code>. </p>
+<p>Der Name einer Referenz wird anhand des Dateinamens und das Ziel anhand des Inhalts der Datei
+bestimmt.</p>
+<p>Branches sind z.B. unter <code>.git/refs/heads/</code> gespeichert.<br />
+Sog. Remote-Tracking-Branches sind unter <code>.git/refs/remotes/</code> gespeichert.
+Und Tags sind unter <code>.git/refs/tags/</code> gespeichert.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ HEAD und andere symbolische Referenzen -->
+        <slide data-date>
+            <hgroup>
+                <h2>HEAD und andere symbolische Referenzen</h2>
+            </hgroup>
+            <article>
+                <p>Eine Referenz, die selten explizit, aber ständig implizit benutzt wird, ist
+<code>HEAD</code>. </p>
+<p>Sie referenziert meist den gerade ausgecheckten Branch, hier &quot;master&quot;:</p>
+<pre><code>$ cat .git/HEAD
+ref: refs/heads/master</code></pre>
+<p>Der <code>HEAD</code> bestimmt, welche Dateien im Working Tree zu finden sind,
+welcher Commit Vorgänger bei der Erstellung eines neuen wird, welcher
+Commit per <code>git show</code> angezeigt wird etc.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten</h2>
+            </hgroup>
+            <article>
+                <p>Ein Branch ist in Git im Nu erstellt.</p>
+<pre><code>$ time git branch neuer-branch
+
+real    0m0.324s
+user    0m0.000s
+sys     0m0.031s</code></pre>
+<p>Das Kommando ist so schnell, weil (im Gegensatz zu anderen Systemen)
+keine Dateien kopiert und keine weiteren Metadaten abgelegt
+werden müssen. </p>
+<p>Informationen über die Struktur der Versionsgeschichte
+sind immer aus dem Commit, den ein Branch referenziert, und seinen
+Vorfahren ableitbar.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - `git branch` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - `git branch`</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Optionen von <code>git branch</code>:</p>
+<h3 class="smaller"><code>git branch [-v]</code></h3>
+<p>Listet lokale Branches auf. (Dabei ist der aktuell ausgecheckte
+Branch mit einem Sternchen markiert.) Mit <code>-v</code> werden außerdem die
+Commit-IDs, auf die die Branches zeigen, sowie die erste Zeile der
+Beschreibung der entsprechenden Commits angezeigt.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - `git branch` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - `git branch`</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Optionen von <code>git branch</code>:</p>
+<h3 class="smaller"><code>git branch [-v]</code></h3>
+<p>Listet lokale Branches auf. (Dabei ist der aktuell ausgecheckte
+Branch mit einem Sternchen markiert.) Mit <code>-v</code> werden außerdem die
+Commit-IDs, auf die die Branches zeigen, sowie die erste Zeile der
+Beschreibung der entsprechenden Commits angezeigt.</p>
+<h3 class="smaller"><code>git branch &lt;branch&gt; [&lt;ref&gt;]</code></h3>
+<p>Erstellt einen neuen Branch <code>&lt;branch&gt;</code>, der auf Commit <code>&lt;ref&gt;</code> zeigt
+(<code>&lt;ref&gt;</code> kann die SHA-1-Summe eines Commits sein, ein anderer
+Branch usw.). Wenn wir keine Referenz angeben, ist dies <code>HEAD</code>, der
+aktuelle Branch.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - `git branch` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - `git branch`</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Optionen von <code>git branch</code>:</p>
+<h3 class="smaller"><code>git branch -m [&lt;alter-name&gt;] &lt;neuer-name&gt;</code></h3>
+<p>Ohne <code>&lt;alter-name&gt;</code> wird der aktuelle Branch in <code>&lt;neuer-name&gt;</code> umbenannt. Werden beide
+Argumente übergeben wird der Branch <code>&lt;alter-name&gt;</code> in <code>&lt;neuer-name&gt;</code> umbenannt.</p>
+<p>Das Kommando schlägt fehl, wenn dadurch ein anderer Branch überschrieben würde.</p>
+<pre><code>$ git branch -m master
+fatal: A branch named 'master' already exists.</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - `git branch` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - `git branch`</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Optionen von <code>git branch</code>:</p>
+<h3 class="smaller"><code>git branch -m [&lt;alter-name&gt;] &lt;neuer-name&gt;</code></h3>
+<p>Ohne <code>&lt;alter-name&gt;</code> wird der aktuelle Branch in <code>&lt;neuer-name&gt;</code> umbenannt. Werden beide
+Argumente übergeben wird der Branch <code>&lt;alter-name&gt;</code> in <code>&lt;neuer-name&gt;</code> umbenannt.</p>
+<p>Das Kommando schlägt fehl, wenn dadurch ein anderer Branch überschrieben würde.</p>
+<pre><code>$ git branch -m master
+fatal: A branch named 'master' already exists.</code></pre>
+<h3 class="smaller"><code>git branch -M ...</code></h3>
+<p>Wie <code>-m</code>, nur dass ein Branch auch umbenannt wird, wenn dadurch
+ein anderer überschrieben wird. Achtung: Dabei können Commits
+des überschriebenen Branches verlorengehen!</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - `git branch` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - `git branch`</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Optionen von <code>git branch</code>:</p>
+<h3 class="smaller"><code>git branch -d &lt;branch&gt;</code></h3>
+<p>Löscht Branch <code>&lt;branch&gt;</code>. </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - `git branch` -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - `git branch`</h2>
+            </hgroup>
+            <article>
+                <p>Die wichtigsten Optionen von <code>git branch</code>:</p>
+<h3 class="smaller"><code>git branch -d &lt;branch&gt;</code></h3>
+<p>Löscht Branch <code>&lt;branch&gt;</code>. </p>
+<h3 class="smaller"><code>git branch -D ...</code></h3>
+<p>Löscht Branch <code>&lt;branch&gt;</code>, auch wenn er Commits enthält, die noch nicht
+in den Upstream- oder aktuellen Branch integriert wurden. </p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - Branches wechseln -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - Branches wechseln</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Branches wechselt man mit <code>git checkout &lt;branch&gt;</code>. </p>
+<p>Um einen Branch zu erstellen und direkt darauf zu wechseln, verwendet man <code>git checkout -b &lt;branch&gt;</code>. (Äquivalent zu <code>git branch &lt;branch&gt; &amp;&amp; git checkout &lt;branch&gt;</code>.)</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - Branches wechseln -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - Branches wechseln</h2>
+            </hgroup>
+            <article class="smaller">
+                <p>Branches wechselt man mit <code>git checkout &lt;branch&gt;</code>. </p>
+<p>Um einen Branch zu erstellen und direkt darauf zu wechseln, verwendet man <code>git checkout -b &lt;branch&gt;</code>. (Äquivalent zu <code>git branch &lt;branch&gt; &amp;&amp; git checkout &lt;branch&gt;</code>.)</p>
+<h3 class="smaller">Was passiert bei einem Checkout?</h3>
+<p>Jeder Branch referenziert einen Commit, der wiederum einen Tree referenziert, also das Abbild einer
+Verzeichnisstruktur. Ein <code>git checkout &lt;branch&gt;</code> löst nun die Referenz
+<code>&lt;branch&gt;</code> auf einen Commit auf und repliziert den Tree des Commits
+auf den Index und auf den Working Tree (d.h. auf das Dateisystem).</p>
+<p>Da Git weiß, in welcher Version Dateien aktuell in Index und Working
+Tree vorliegen, müssen nur die Dateien, die sich auf dem aktuellen und
+dem neuen Branch unterscheiden, ausgecheckt werden.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - Branches wechseln -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - Branches wechseln</h2>
+            </hgroup>
+            <article>
+                <p>Ein Checkout würde eher fehlschlagen als eventuell nicht abgespeicherte
+Änderungen in einer Datei zu überschreiben. Das passiert in den folgenden
+beiden Fällen:</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - Branches wechseln -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - Branches wechseln</h2>
+            </hgroup>
+            <article>
+                <p>Ein Checkout würde eher fehlschlagen als eventuell nicht abgespeicherte
+Änderungen in einer Datei zu überschreiben. Das passiert in den folgenden
+beiden Fällen:</p>
+<ul>
+<li>Der Checkout würde eine Datei im Working Tree überschreiben, in
+der sich Änderungen befinden. Git gibt in dem Fall folgende Fehlermeldung aus:
+<code>error: Your local changes to the following files would be overwritten by checkout: datei.</code></li>
+</ul>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - Branches wechseln -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - Branches wechseln</h2>
+            </hgroup>
+            <article>
+                <p>Ein Checkout würde eher fehlschlagen als eventuell nicht abgespeicherte
+Änderungen in einer Datei zu überschreiben. Das passiert in den folgenden
+beiden Fällen:</p>
+<ul>
+<li>Der Checkout würde eine Datei im Working Tree überschreiben, in
+der sich Änderungen befinden. Git gibt in dem Fall folgende Fehlermeldung aus:
+<code>error: Your local changes to the following files would be overwritten by checkout: datei.</code></li>
+<li>Der Checkout würde eine ungetrackte Datei überschreiben, d.h.
+eine Datei, die nicht von Git verwaltet wird. Git bricht dann mit der
+Fehlermeldung ab: <code>error: The following untracked working tree files would be overwritten by checkout: datei.</code></li>
+</ul>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - Branches wechseln -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - Branches wechseln</h2>
+            </hgroup>
+            <article>
+                <p>Ein Checkout würde eher fehlschlagen als eventuell nicht abgespeicherte
+Änderungen in einer Datei zu überschreiben. Das passiert in den folgenden
+beiden Fällen:</p>
+<ul>
+<li>Der Checkout würde eine Datei im Working Tree überschreiben, in
+der sich Änderungen befinden. Git gibt in dem Fall folgende Fehlermeldung aus:
+<code>error: Your local changes to the following files would be overwritten by checkout: datei.</code></li>
+<li>Der Checkout würde eine ungetrackte Datei überschreiben, d.h.
+eine Datei, die nicht von Git verwaltet wird. Git bricht dann mit der
+Fehlermeldung ab: <code>error: The following untracked working tree files would be overwritten by checkout: datei.</code></li>
+</ul>
+<p>Wenn man Änderungen nicht mehr braucht, kann man per <code>git checkout -f</code> die Fehlermeldungen ignorieren
+und den Checkout trotzdem ausführen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Branches verwalten - Branches wechseln -->
+        <slide data-date>
+            <hgroup>
+                <h2>Branches verwalten - Branches wechseln</h2>
+            </hgroup>
+            <article>
+                <p>Ein Checkout würde eher fehlschlagen als eventuell nicht abgespeicherte
+Änderungen in einer Datei zu überschreiben. Das passiert in den folgenden
+beiden Fällen:</p>
+<ul>
+<li>Der Checkout würde eine Datei im Working Tree überschreiben, in
+der sich Änderungen befinden. Git gibt in dem Fall folgende Fehlermeldung aus:
+<code>error: Your local changes to the following files would be overwritten by checkout: datei.</code></li>
+<li>Der Checkout würde eine ungetrackte Datei überschreiben, d.h.
+eine Datei, die nicht von Git verwaltet wird. Git bricht dann mit der
+Fehlermeldung ab: <code>error: The following untracked working tree files would be overwritten by checkout: datei.</code></li>
+</ul>
+<p>Wenn man Änderungen nicht mehr braucht, kann man per <code>git checkout -f</code> die Fehlermeldungen ignorieren
+und den Checkout trotzdem ausführen.</p>
+<p>Wenn man sowohl die Änderungen behalten als auch den Branch wechseln
+will (Beispiel: Arbeit unterbrechen und auf einem anderen
+Branch einen Fehler korrigieren), dann hilft <code>git stash</code>.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Tags – Wichtige Versionen markieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Tags – Wichtige Versionen markieren</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>SHA-1-Summen sind zwar eine sehr elegante Lösung, um Versionen
+dezentral zu beschreiben, aber semantikarm und für Menschen unhandlich.</p>
+<p>Im Gegensatz zu linearen Revisionsnummern sagen uns Commit-
+IDs allein nichts über die Reihenfolge der Versionen.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Tags – Wichtige Versionen markieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Tags – Wichtige Versionen markieren</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Git bietet mit <em>Tags</em> die Möglichkeit, beliebige Git-Objekte – meist Commits – zu markieren, um bestimmte Punkte in der Versionshistorie hervorzuheben. </p>
+<p>Tags sind, wie Branches auch, als Referenzen auf Objekte implementiert. </p>
+<p>Im Gegensatz zu Branches jedoch sind Tags statisch, dass heißt, sie werden nicht verschoben, wenn neue Commits hinzukommen, und zeigen stets auf dasselbe
+Objekt.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Tags – Wichtige Versionen markieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Tags – Wichtige Versionen markieren</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Es gibt zwei Arten von Tags: </p>
+<ul>
+<li><em>Annotated Tags</em><br />
+Sind mit Metadaten – z.B. Autor, Beschreibung o.a. – versehen. </li>
+<li><em>Lightweight Tags</em><br />
+Referenzieren „einfach nur“ auf ein bestimmtes Git-Objekt. </li>
+</ul>
+<p>Für beide Arten von Tags legt Git unter <code>.git/refs/tags/</code> (bzw. <code>.git/packed-refs</code>) Referenzen an. Der
+Unterschied ist, dass Git für jedes Annotated Tag ein spezielles Git-
+Objekt – und zwar ein Tag-Objekt – in der Objektdatenbank anlegt,
+während ein Lightweight Tag direkt auf das markierte Objekt
+zeigt.</p>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Tags – Wichtige Versionen markieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Tags – Wichtige Versionen markieren</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Um den <code>HEAD</code> mit einem Lightweight Tag zu versehen, übergibt man
+den gewünschten Namen an das Kommando:</p>
+<pre><code>$ git tag 2.0
+$ git tag
+2.0</code></pre>
+<p>Man kann aber auch die SHA-1-Summe eines Objekts oder eine valide
+Revisionsbezeichnung (z.B. <code>master</code> oder <code>HEAD~23</code>) angeben, um ein
+Objekt nachträglich zu markieren.</p>
+<pre><code>$ git tag 1.9.7 e2c67eb
+$ git tag
+2.0
+1.9.7</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Tags – Wichtige Versionen markieren -->
+        <slide data-date>
+            <hgroup>
+                <h2>Tags – Wichtige Versionen markieren</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Annotated Tags erzeugt man mit der Option <code>-a</code>. </p>
+<p>Wie bei <code>git commit</code> öffnet sich ein Editor, mit dem man die Tag-Message verfasst. Oder man übergibt die Tag-Message mit der Option <code>-m</code> – dann ist die Option <code>-a</code> redundant:</p>
+<pre><code>$ git tag -m "Version 2.0 LTS" 2.0</code></pre>
+            </article>
+        </slide>
+
+        <!-- Default Slide +++ Tags löschen und überschreiben -->
+        <slide data-date>
+            <hgroup>
+                <h2>Tags löschen und überschreiben</h2>
+            </hgroup>
+            <article class="bigger">
+                <p>Mit den Optionen <code>-d</code> und <code>-f</code> löscht man Tags bzw. überschreibt sie:</p>
+<pre><code>$ git tag -d 2.0
+Deleted tag '2.0' (was 4773c73)</code></pre>
+<p>ACHTUNG: Die Optionen sind mit Vorsicht zu genießen. Unter bestimmten Umständen kann es dazu kommen, dass Tags unterschiedliche
+Commits bezeichnen – Version 1.0 im Repository X zeigt auf einen
+anderen Commit als Version 1.0 im Repository Y.</p>
+            </article>
+        </slide>
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             O U T R O - S L I D E S
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- Thank-You Slide (with contact details) -->
+        <slide data-date class="thank-you-slide">
+            <hgroup class="auto-fadein">
+                <h1>&lt;Thank you!&gt;</h1>
+            </hgroup>
+            <article class="auto-fadein">
+                <p><b>Get in touch</b></p>
+                <p data-config-contact><!-- populated from slide_config.json --></p>
+            </article>
+        </slide>
+
+        <!-- A "DO NEVER EVER REMOVE THIS; OR THE WORLD WILL FALL APART"-SLIDE! -->
+        <slide data-date class="backdrop"></slide>
+
+    </slides>
+
+    <!--###GOOGLE_ANALYTICS_JS###-->
+</body>
+</html>

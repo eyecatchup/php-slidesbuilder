@@ -1,0 +1,410 @@
+<!--
+AOE HTML5 Slide Template
+
+Author:  Stephan Schmitz <stephan.schmitz@aoe.com>
+
+URL: https://git.aoesupport.com/gitweb/users/stephan.schmitz/aoe-html5slides.git
+
+Based on the Google IO HTML5 Slide Template by Eric Bidelman & Luke Mahé.
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!doctype html>
+<html>
+<head>
+    <title>AOE HTML5 Slide Template</title>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--This one seems to work all the time, but really small on ipad-->
+    <meta name="viewport" content="initial-scale=0.4"><!---->
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="AOE HTML5 Slide Template">
+    <meta name="theme-color" content="#000000">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AOE HTML5 Slide Template">
+
+    <link rel="stylesheet" media="all" href="theme/css/fonts.css">
+    <link rel="stylesheet" media="all" href="theme/css/default.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+
+    <style>em {font-style: italic;} code {color: blueviolet; background-color: rgba(255,255,255,.9);} pre > code {background-color: rgba(255,255,255,.0);} h3.smaller {font-size: 110%;} article.bigger p,article.bigger ul {font-size: 32px;}</style>
+
+    <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+
+    <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0" class="aoe-gradient">
+
+    <!-- SlideDeck Wrapper -->
+    <slides class="layout-widescreen">
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             I N T R O - S L I D E S
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- Cover Slide -->
+        <slide data-date class="logoslide nobackground">
+            <article class="flexbox vcenter">
+                <span><img src="images/AOE-Logo_1c-v-claim.png" /></span>
+            </article>
+        </slide>
+
+        <!-- Title Slide -->
+        <slide data-date class="title-slide">
+            <hgroup class="auto-fadein">
+                <h1 data-config-title><!-- populated from slide_config.json --></h1>
+                <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+            </hgroup>
+            <article><p data-config-presenter><!-- populated from slide_config.json --></p></article>
+        </slide>
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             C O N T E N T - S L I D E S
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             A G E N D A
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- Chapter Cover +++ Agenda -->
+        <slide data-date class="fill nobackground" style="background-image: url(images/chapter-covers/agenda.jpg)">
+            <hgroup class="new-chapter">
+                <h2>Agenda</h2>
+            </hgroup>
+            <!--<footer class="source white">bit.ly/gitworkshopagenda1</footer>-->
+        </slide>
+
+        <!-- Agenda - 1.1 Intro -->
+        <slide data-date>
+            <!-- Hidden speaker note element. Unveil pressing 'p'. Place above hgroup. -->
+            <aside class="note">
+                <section>
+                    <ul>
+                        <li>#1 - DCVS:<br>Eine <b>kurze</b> Einführung in das grundlegende / grundsätzliche Konzept der dezentralen Versionsverwaltung (DCVS).</li>
+                        <li>#2 - CCVS vs. DCVS:<br>Ein <b>kurzer</b> Blick auf die jeweiligen Vor- und Nachteile der CVS-Konzepte (CCVS vs. DCVS).</li>
+                        <li>#3 - Git:<br>Eine <b>kurze</b> Vorstellung von Git. (Keyfacts, Historie, Wer, Warum.. Nur Bullet Points!)</li>
+                        <li>#4 - Vorteil Git:<br>Git ist besser weil, .. (Aber auch schon mal <b>kurz</b> auf Schwächen aufmerksam machen!)</li>
+                    </ul>
+                </section>
+            </aside>
+            <hgroup>
+                <h2>Agenda - 1.1 Intro / Grundlegendes</h2>
+            </hgroup>
+            <article>
+                <div class="smaller"><p><span class="small">Dauer: ca. 15 Minuten</span></p></div>
+                <p>Was genau ist nun ..</p>
+                <ul class="build fade">
+                    <li>.. Dezentrale Versionsverwaltung (DCVS)?</li>
+                    <li>.. der Unterschied zwischen DCVS und CCVS (Zentrale Versionverwaltung)?</li>
+                    <li>.. Git?</li>
+                    <li>.. der Vorteil von Git (gegenüber andern CVS')?</li>
+                </ul>
+            </article>
+        </slide>
+
+        <!-- Agenda - 1.2 Setup / Config -->
+        <slide data-date>
+            <!-- Hidden speaker note element. Unveil pressing 'p'. Place above hgroup. -->
+            <aside class="note">
+                <section>
+                    <ul>
+                        <li>.ssh</li>
+                        <li>Danach: 10 Minuten Pause</li>
+                    </ul>
+                </section>
+            </aside>
+            <hgroup>
+                <h2>Agenda - 1.2 Setup &amp; Konfiguration</h2>
+            </hgroup>
+            <article class="smallerx">
+                <div class="smaller"><p><span class="small">Dauer: ca. 45 Minuten</span></p></div>
+                <div class="columns-2">
+                    <div>
+                    <ul class="build" style="-webkit-column-break-after: always">
+                        <li>
+                            <span><b>1.2.1 Git installieren</b></span>
+                            <ul>
+                                <li><span class="small">Git-Client</span></li>
+                                <li><span class="small">Git-Helfer ("git-extras", "Git Extensions")</small></li>
+                            </ul>
+                        </li><br>
+                        <li>
+                            <span><b>1.2.2 Git auf der Kommandozeile</b></span>
+                            <ul>
+                                <li><span class="small">Laufzeitumgebung konfigurieren / Umgebungsvariablen setzen</span></li>
+                                <li><span class="small">Shortcuts einrichten (Git Aliase)</span></li>
+                                <li><span class="small">Zeichensatz / Zeilenenden einstellen</span></li>
+                                <li><span class="small">Benutzer einrichten</span></li>
+                                <li><span class="small">Filter nutzen: z.B. Commit-Templates oder automatische Fehlerkorrektur</span></li>
+                            </ul>
+                        </li><br>
+                    </ul>
+                    </div>
+                    <div>
+                    <ul class="build">
+                        <li>
+                            <span><b>1.2.3 Git in der IDE</b></span>
+                            <ul>
+                                <li><span class="small">Git GUIs</span></li>
+                                <li><span class="small">Git Workflow-Plugin für PhpStorm</span></li>
+                            </ul>
+                        </li><br>
+                        <li>
+                            <span><b>1.2.4 Besonderheiten unter Windows</b></span>
+                            <ul>
+                                <li><span class="small">Die "richtige" Installationsquelle</span></li>
+                                <li><span class="small">Wann POSIX-Pfade, wann nicht?</span></li>
+                                <li><span class="small">Reihenfolge im <code>PATH</code> beachten</span></li>
+                                <li><span class="small"><code>ssh</code> korrekt konfigurieren</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </article>
+        </slide>
+
+        <!-- Pause 1 -->
+        <slide data-date class="fill nobackground" style="background-image: url(images/chapter-covers/pause-1.jpg)">
+            <hgroup>
+                <h2 class="white">10 Minuten Pause</h2>
+            </hgroup>
+        </slide>
+
+        <!-- Agenda - 1.3 Lokales Git / Grundlagen -->
+        <slide data-date>
+            <!-- Hidden speaker note element. Unveil pressing 'p'. Place above hgroup. -->
+            <aside class="note">
+                <section>
+                    <ul>
+                        <li>.ssh</li>
+                        <li>Danach: 10 Minuten Pause</li>
+                    </ul>
+                </section>
+            </aside>
+            <hgroup>
+                <h2>Agenda - 1.3 Basics: Lokales Arbeiten mit Git</h2>
+            </hgroup>
+            <article class="smallerx">
+                <div class="smaller"><p><span class="small">Dauer: ca. 60 Minuten</span></p></div>
+                <div class="columns-2">
+                    <div>
+                    <ul class="build" style="-webkit-column-break-after: always">
+                        <li>
+                            <span><b>1.3.1 Index- &amp; Commit-Grundlagen</b></span>
+                            <ul>
+                                <li><span class="small">Git's Index</span></li>
+                                <li><span class="small">Commits</span>
+                                    <ul>
+                                        <li><span class="small">Inhalte erstellen</span></li>
+                                        <li><span class="small">Inhalte ändern</span></li>
+                                        <li><span class="small">Staging / Inhalte zum Index hinzufügen</span></li>
+                                        <li><span class="small">Index-Reset / Inhalte aus dem Index löschen</span></li>
+                                        <!--<li><span class="small">Symbolische Referenzen (<code>HEAD</code> etc.)</span></li>-->
+                                    </ul>
+                                </li>
+                                <li><span class="small">Historie</span>
+                                    <ul>
+                                        <li><span class="small">Im Index suchen</span></li>
+                                        <li><span class="small">Index-Historie umschreiben</span></li>
+                                        <li><span class="small">Historie exportieren / Changelogs</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li><br>
+                    </ul>
+                    </div>
+                    <div>
+                    <ul class="build">
+                        <li>
+                            <span><b>1.3.2 Das Git-Objektmodell</b></span>
+                            <ul>
+                                <li><span class="small">Die SHA-1 Referenz</span></li>
+                                <li><span class="small">Die verschiedenen Git-Objekte (Blob, Tree, Commit, Tag) und deren Relationen</span></li>
+                                <li><span class="small">Die Objektdatenbank</span>
+                                    <ul>
+                                        <li><span class="small">Aufbau der Objektdatenbank</span></li>
+                                        <li><span class="small">Arbeiten mit der Objektdatenbank</span></li>
+                                        <li><span class="small">Deduplizierung</span></li>
+                                    </ul>
+                                </li>
+                                <li><span class="small">Der Commit-Graph</span>
+                                    <ul>
+                                        <li><span class="small">Die Graph-Struktur</span></li>
+                                        <li><span class="small">Graph-Referenzen: Branches &amp; Tags</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </article>
+        </slide>
+
+        <!-- Pause 2 -->
+        <slide data-date class="fill nobackground" style="background-image: url(images/chapter-covers/pause-2.jpg)">
+            <hgroup>
+                <h2 class="white">10 Minuten Pause</h2>
+            </hgroup>
+        </slide>
+
+        <!-- Agenda - 1.4 (#1) Praktische Versionsverwaltung mit Git -->
+        <slide data-date>
+            <!-- Hidden speaker note element. Unveil pressing 'p'. Place above hgroup. -->
+            <aside class="note">
+                <section>
+                    <ul>
+                        <li>.ssh</li>
+                        <li>Danach: 10 Minuten Pause</li>
+                    </ul>
+                </section>
+            </aside>
+            <hgroup>
+                <h2>Agenda - 1.4 Praktische Versionsverwaltung mit Git (#1)</h2>
+            </hgroup>
+            <article class="smallerx">
+                <div class="smaller"><p><span class="small">Dauer: ca. 60 Minuten</span></p></div>
+                <div class="columns-2">
+                    <div>
+                    <ul class="build" style="-webkit-column-break-after: always">
+                        <li>
+                            <span><b>1.4.1 Referenzen: Branches &amp; Tags</b></span>
+                            <ul>
+                                <li><span class="small"><code>HEAD</code> und andere symbolische Referenzen</span></li>
+                                <li><span class="small">Branches verwalten</span>
+                                    <ul>
+                                        <li><span class="small">Branches wechseln: <code>git checkout</code></span></li>
+                                        <li><span class="small">Konventionen zur Benennung von Branches</span></li>
+                                        <li><span class="small">Gelöschte Branches und "verlorene" Commits</span></li>
+                                    </ul>
+                                </li>
+                                <li><span class="small">Tags - Wichtige Versionen markieren</span>
+                                    <ul>
+                                        <li><span class="small">Tags erstellen &amp; verwalten</span></li>
+                                        <li><span class="small">Lightweight-, Annotated- &amp; Signed-Tags</span></li>
+                                        <li><span class="small">Tags löschen &amp; überschreiben</span></li>
+                                        <li><span class="small">Commits korrekt beschreiben</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li><br>
+                    </ul>
+                    </div>
+                    <div>
+                    <ul class="build">
+                        <li>
+                            <span><b>1.4.2 Wiederherstellung von Versionen</b></span>
+                            <ul>
+                                <li><span class="small">Detached <code>HEAD</code></span></li>
+                                <li><span class="small">Commits rückgängig machen</span>
+                                    <ul>
+                                        <li><span class="small">Via <code>checkout</code></span></li>
+                                        <li><span class="small">Via <code>revert</code></span></li>
+                                        <li><span class="small">Via <code>reset</code></span></li>
+                                        <li><span class="small">Via <code>rebase</code></span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </article>
+        </slide>
+
+        <!-- Agenda - 1.4 (#2) Praktische Versionsverwaltung mit Git -->
+        <slide data-date>
+            <!-- Hidden speaker note element. Unveil pressing 'p'. Place above hgroup. -->
+            <aside class="note">
+                <section>
+                    <ul>
+                        <li>.ssh</li>
+                        <li>Danach: 10 Minuten Pause</li>
+                    </ul>
+                </section>
+            </aside>
+            <hgroup>
+                <h2>Agenda - 1.4 Praktische Versionsverwaltung mit Git (#2)</h2>
+            </hgroup>
+            <article class="smallerx">
+                <div class="smaller"><p><span class="small">Dauer: ca. 60 Minuten</span></p></div>
+                <div class="columns-2">
+                    <div>
+                    <ul class="build" style="-webkit-column-break-after: always">
+                        <li>
+                            <span><b>1.4.3 Versionen zusammenführen: Merging</b></span>
+                            <ul>
+                                <li><span class="small"><b>Zwei</b> Branches verschmelzen</span></li>
+                                <li><span class="small">Fast-Forward-Merges</span></li>
+                                <li><span class="small">3-Way-Merges</span></li>
+                                <li><span class="small">(Andere) Merge-Strategien</span></li>
+                                <li><span class="small">Optionen für die "recursive" Strategie</span></li>
+                            </ul>
+                        </li><br>
+                    </ul>
+                    </div>
+                    <div>
+                    <ul class="build">
+                        <li>
+                            <span><b>1.4.4 Merge-Konflikte lösen</b></span>
+                            <ul>
+                                <li><span class="small">Hilfe beim Mergen: Mergetools</span></li>
+                                <li><span class="small"><code>rerere</code>: "Reuse Recorded Resolution"</span></li>
+                                <li><span class="small">Konflikte vermeiden</span></li>
+                            </ul>
+                        </li><br>
+                        <li>
+                            <span><b>1.4.5 Einzelne Commits übernehmen</b></span>
+                            <ul>
+                                <li><span class="small">Cherry-Picking</span></li>
+                                <li><span class="small">Patching</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </article>
+        </slide>
+
+        <!-- Los geht's -->
+        <slide data-date class="fill nobackground" style="background-image: url(images/chapter-covers/los-gehts.jpg)">
+            <hgroup>
+                <h2 class="white">Los geht's</h2>
+            </hgroup>
+        </slide>
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             A G E N D A    E N D E
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!--###CONTENT_SLIDES###-->
+
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+             O U T R O - S L I D E S
+        ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+        <!-- Thank-You Slide (with contact details) -->
+        <slide data-date class="thank-you-slide">
+            <hgroup class="auto-fadein">
+                <h1>&lt;Thank you!&gt;</h1>
+            </hgroup>
+            <article class="auto-fadein">
+                <p><b>Get in touch</b></p>
+                <p data-config-contact><!-- populated from slide_config.json --></p>
+            </article>
+        </slide>
+
+        <!-- A "DO NEVER EVER REMOVE THIS; OR THE WORLD WILL FALL APART"-SLIDE! -->
+        <slide data-date class="backdrop"></slide>
+
+    </slides>
+
+    <!--###GOOGLE_ANALYTICS_JS###-->
+</body>
+</html>
